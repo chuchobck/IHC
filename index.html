@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VØRTEX — Tienda de streetwear. Estilo urbano, calidad premium. Compra en línea con IVA incluido.">
+  <title>VØRTEX — Streetwear | Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR (Unified) -->
+  <nav class="navbar" role="navigation" aria-label="Menú principal">
+    <div class="navbar__top">
+      <a href="index.html" class="navbar__brand">VØRTEX</a>
+      <div class="navbar__search-slot">
+        <form class="navbar__search-form" role="search" onsubmit="event.preventDefault()">
+          <input class="navbar__search-input" type="search" placeholder="Buscar en catálogo de ropa, accesorios..." aria-label="Buscar productos">
+          <button class="navbar__search-btn" type="submit" aria-label="Buscar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="navbar__actions">
+        <a href="login.html" class="navbar__login-link" aria-label="Iniciar sesión">Ingresar</a>
+        <a href="carrito.html" class="navbar__cart" aria-label="Ver carrito de compras">
+          🛒
+          <span class="navbar__cart-badge" id="cart-badge">3</span>
+        </a>
+        <button class="navbar__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="navbar__bottom">
+      <div class="navbar__links">
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="navbar__mobile" id="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="novedades.html">Novedades</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Iniciar Sesión</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- A) HERO CAROUSEL -->
+    <section class="hero-carousel" aria-label="Carrusel de productos destacados">
+      <!-- Radio inputs for CSS-only control -->
+      <input type="radio" name="carousel" id="carousel-1" checked>
+      <input type="radio" name="carousel" id="carousel-2">
+      <input type="radio" name="carousel" id="carousel-3">
+
+      <!-- Slides -->
+      <div class="hero-carousel__slides">
+        <!-- Slide 1: Hoodie Magenta -->
+        <div class="hero-carousel__slide">
+          <img src="assets/images/carousel-1.png" alt="Hoodie magenta streetwear" class="hero-carousel__slide-img">
+          <div class="hero-carousel__content">
+            <span class="hero-carousel__badge">Colección Magenta 2026</span>
+            <h2>Hoodie Oversize Magenta</h2>
+            <p>El color que define la temporada. Algodón premium, corte oversize, estilo inconfundible.</p>
+            <a href="catalogo.html" class="btn">Comprar ahora — $89.99</a>
+          </div>
+        </div>
+        <!-- Slide 2: Cargo Pants Magenta -->
+        <div class="hero-carousel__slide">
+          <img src="assets/images/carousel-2.png" alt="Cargo pants magenta streetwear" class="hero-carousel__slide-img">
+          <div class="hero-carousel__content">
+            <span class="hero-carousel__badge">Nuevo Lanzamiento</span>
+            <h2>Cargo Pants Magenta</h2>
+            <p>Funcionalidad y estilo. Bolsillos cargo, tela resistente, color vibrante.</p>
+            <a href="catalogo.html" class="btn">Ver Colección</a>
+          </div>
+        </div>
+        <!-- Slide 3: Tee Magenta -->
+        <div class="hero-carousel__slide">
+          <img src="assets/images/carousel-3.png" alt="Camiseta magenta streetwear" class="hero-carousel__slide-img">
+          <div class="hero-carousel__content">
+            <span class="hero-carousel__badge">Edición Limitada</span>
+            <h2>Tee Graphic Magenta</h2>
+            <p>Diseño exclusivo en magenta. Define tu estilo urbano con VØRTEX.</p>
+            <a href="catalogo.html" class="btn">Explorar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Dots -->
+      <div class="hero-carousel__dots">
+        <label for="carousel-1" class="hero-carousel__dot" aria-label="Slide 1"></label>
+        <label for="carousel-2" class="hero-carousel__dot" aria-label="Slide 2"></label>
+        <label for="carousel-3" class="hero-carousel__dot" aria-label="Slide 3"></label>
+      </div>
+
+      <!-- Arrows -->
+      <div class="hero-carousel__arrows">
+        <label class="hero-carousel__arrow" id="arrow-prev" aria-label="Anterior">‹</label>
+        <label class="hero-carousel__arrow" id="arrow-next" aria-label="Siguiente">›</label>
+      </div>
+    </section>
+
+    <!-- B) CATEGORÍAS -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Categorías</h2>
+        <div class="categories-grid">
+          <a href="catalogo.html" class="category-card" aria-label="Ver categoría Hoodies">
+            <div class="category-card__icon">🧥</div>
+            <div class="category-card__name">Hoodies</div>
+          </a>
+          <a href="catalogo.html" class="category-card" aria-label="Ver categoría Camisetas">
+            <div class="category-card__icon">👕</div>
+            <div class="category-card__name">Camisetas</div>
+          </a>
+          <a href="catalogo.html" class="category-card" aria-label="Ver categoría Pantalones">
+            <div class="category-card__icon">👖</div>
+            <div class="category-card__name">Pantalones</div>
+          </a>
+          <a href="catalogo.html" class="category-card" aria-label="Ver categoría Accesorios">
+            <div class="category-card__icon">🧢</div>
+            <div class="category-card__name">Accesorios</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- C) PRODUCTOS DESTACADOS -->
+    <section class="section section--mist">
+      <div class="container">
+        <h2 class="section__title">⭐ Productos Destacados</h2>
+        <div class="featured-grid">
+          <article class="featured-card" data-id="PROD-001" data-nombre="Hoodie Oversize Noir" data-precio="89.99">
+            <div class="featured-card__ribbon">DESTACADO</div>
+            <div class="featured-card__img"><img src="assets/images/product-hoodie.png" alt="Hoodie Oversize Noir"></div>
+            <div class="featured-card__body">
+              <h3 class="featured-card__name">Hoodie Oversize Noir</h3>
+              <div class="featured-card__price">$89.99</div>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+            </div>
+          </article>
+          <article class="featured-card" data-id="PROD-002" data-nombre="Cargo Pants Urban" data-precio="74.99">
+            <div class="featured-card__ribbon">DESTACADO</div>
+            <div class="featured-card__img"><img src="assets/images/product-cargo.png" alt="Cargo Pants Urban"></div>
+            <div class="featured-card__body">
+              <h3 class="featured-card__name">Cargo Pants Urban</h3>
+              <div class="featured-card__price">$74.99</div>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+            </div>
+          </article>
+          <article class="featured-card" data-id="PROD-003" data-nombre="Tee Graphic Wave" data-precio="39.99">
+            <div class="featured-card__ribbon">DESTACADO</div>
+            <div class="featured-card__img"><img src="assets/images/product-tee.png" alt="Tee Graphic Wave"></div>
+            <div class="featured-card__body">
+              <h3 class="featured-card__name">Tee Graphic Wave</h3>
+              <div class="featured-card__price">$39.99</div>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+            </div>
+          </article>
+          <article class="featured-card" data-id="PROD-004" data-nombre="Cap Snapback V" data-precio="29.99">
+            <div class="featured-card__ribbon">DESTACADO</div>
+            <div class="featured-card__img"><img src="assets/images/product-hoodie.png" alt="Cap Snapback V"></div>
+            <div class="featured-card__body">
+              <h3 class="featured-card__name">Cap Snapback V</h3>
+              <div class="featured-card__price">$29.99</div>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- D) MÁS VENDIDOS -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Más Vendidos</h2>
+        <div class="products-grid">
+          <article class="product-card" data-id="PROD-001">
+            <div class="product-card__img"><img src="assets/images/product-hoodie.png" alt="Hoodie Oversize Noir"></div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Hoodie Oversize Noir</h3>
+              <div class="product-card__price">
+                <span class="current">$89.99</span>
+                <span class="old">$120.00</span>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+            </div>
+          </article>
+          <article class="product-card" data-id="PROD-002">
+            <div class="product-card__img"><img src="assets/images/product-cargo.png" alt="Cargo Pants Urban"></div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Cargo Pants Urban</h3>
+              <div class="product-card__price">
+                <span class="current">$74.99</span>
+                <span class="old">$95.00</span>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+            </div>
+          </article>
+          <article class="product-card" data-id="PROD-003">
+            <div class="product-card__img"><img src="assets/images/product-tee.png" alt="Tee Graphic Wave"></div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Tee Graphic Wave</h3>
+              <div class="product-card__price">
+                <span class="current">$39.99</span>
+                <span class="old">$55.00</span>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+            </div>
+          </article>
+          <article class="product-card" data-id="PROD-004">
+            <div class="product-card__img"><img src="assets/images/product-hoodie.png" alt="Cap Snapback V"></div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Cap Snapback V</h3>
+              <div class="product-card__price">
+                <span class="current">$29.99</span>
+                <span class="old">$40.00</span>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- E) BANNER PROMO -->
+    <section class="banner-promo">
+      <h2>Envío gratis en pedidos mayores a $100</h2>
+      <p>Usa el código VORTEX2026 y obtén un 15% de descuento en tu primera compra.</p>
+      <a href="catalogo.html" class="btn">Comprar ahora</a>
+    </section>
+
+    <!-- F) TESTIMONIOS -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Lo que dicen nuestros clientes</h2>
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <p class="testimonial-card__text">"La calidad de las prendas es increíble. El hoodie oversize es mi favorito, súper cómodo y con un estilo brutal."</p>
+            <p class="testimonial-card__author">— Andrés M.</p>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-card__text">"Envío rápido y empaque muy cuidado. Se nota que les importa la experiencia del cliente. 100% recomendado."</p>
+            <p class="testimonial-card__author">— Sofía R.</p>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-card__text">"Encontré mi estilo en VØRTEX. Las tallas son exactas y los diseños son únicos. Ya llevo 5 compras."</p>
+            <p class="testimonial-card__author">— Diego L.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (Unified) -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h3>Links Rápidos</h3>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer__col">
+        <h3>Redes Sociales</h3>
+        <a href="#">📷 Instagram</a>
+        <a href="#">🎵 TikTok</a>
+        <a href="#">🐦 Twitter</a>
+        <a href="#">▶️ YouTube</a>
+      </div>
+      <div class="footer__col">
+        <h3>Newsletter</h3>
+        <p class="footer__col-desc">Recibe ofertas exclusivas y novedades.</p>
+        <form class="footer__newsletter" onsubmit="event.preventDefault();">
+          <label for="newsletter-email" class="sr-only">Email para newsletter</label>
+          <input type="email" id="newsletter-email" placeholder="Tu email" required>
+          <button type="submit">Suscribir</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 VØRTEX Streetwear. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL: Agregar al carrito -->
+  <div class="modal-overlay" id="add-cart-modal" role="dialog" aria-modal="true" aria-labelledby="modal-add-title">
+    <div class="modal modal--product">
+      <img src="assets/images/hero-secondary.png" alt="Imagen del producto" class="modal__product-img">
+      <div class="modal__body">
+        <h2 id="modal-add-title">Producto agregado</h2>
+        <p>¿Deseas ir al carrito o seguir comprando?</p>
+        <div class="modal__actions">
+          <button class="btn btn-outline btn-sm" onclick="closeModal('add-cart-modal')">Seguir comprando</button>
+          <a href="carrito.html" class="btn btn-primary btn-sm">Ir al carrito</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function() {
+      const expanded = mobileMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', expanded);
+    });
+
+    // Modal functions
+    function openModal(id) {
+      var overlay = document.getElementById(id);
+      overlay.classList.add('active');
+      var firstBtn = overlay.querySelector('button, a');
+      if (firstBtn) firstBtn.focus();
+      overlay.addEventListener('keydown', trapFocus);
+    }
+    function closeModal(id) {
+      var overlay = document.getElementById(id);
+      overlay.classList.remove('active');
+      overlay.removeEventListener('keydown', trapFocus);
+    }
+    function trapFocus(e) {
+      if (e.key === 'Escape') {
+        var modal = e.currentTarget;
+        modal.classList.remove('active');
+        modal.removeEventListener('keydown', trapFocus);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      var modal = e.currentTarget.querySelector('.modal');
+      var focusable = modal.querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    // Close modal on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeModal(overlay.id);
+      });
+    });
+
+    // Carousel navigation
+    var totalSlides = 3;
+    var currentSlide = 1;
+    function goToSlide(n) {
+      currentSlide = n;
+      document.getElementById('carousel-' + n).checked = true;
+    }
+    document.getElementById('arrow-next').addEventListener('click', function() {
+      currentSlide = (currentSlide % totalSlides) + 1;
+      goToSlide(currentSlide);
+    });
+    document.getElementById('arrow-prev').addEventListener('click', function() {
+      currentSlide = currentSlide <= 1 ? totalSlides : currentSlide - 1;
+      goToSlide(currentSlide);
+    });
+    // Auto-rotate every 5 seconds
+    setInterval(function() {
+      currentSlide = (currentSlide % totalSlides) + 1;
+      goToSlide(currentSlide);
+    }, 5000);
+  </script>
+</body>
+</html>

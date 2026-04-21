@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VØRTEX — Contáctanos. Soporte al cliente en Quito, Ecuador.">
+  <title>VØRTEX — Contacto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR (Unified) -->
+  <nav class="navbar" role="navigation" aria-label="Menú principal">
+    <div class="navbar__top">
+      <a href="index.html" class="navbar__brand">VØRTEX</a>
+      <div class="navbar__search-slot">
+        <form class="navbar__search-form" role="search" onsubmit="event.preventDefault()">
+          <input class="navbar__search-input" type="search" placeholder="Buscar en catálogo de ropa, accesorios..." aria-label="Buscar productos">
+          <button class="navbar__search-btn" type="submit" aria-label="Buscar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="navbar__actions">
+        <a href="login.html" class="navbar__login-link" aria-label="Iniciar sesión">Ingresar</a>
+        <a href="carrito.html" class="navbar__cart" aria-label="Ver carrito de compras">🛒<span class="navbar__cart-badge" id="cart-badge">3</span></a>
+        <button class="navbar__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="navbar__bottom">
+      <div class="navbar__links">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="contacto.html" aria-current="page">Contacto</a>
+      </div>
+    </div>
+    <div class="navbar__mobile" id="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="novedades.html">Novedades</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Iniciar Sesión</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Contacto</h1>
+        <p>¿Tienes preguntas? Escríbenos y te responderemos pronto</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-layout">
+          <!-- Formulario de Soporte -->
+          <div>
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="contact-name">Nombre completo</label>
+                <input type="text" id="contact-name" name="nombre_contacto" required aria-required="true" aria-describedby="name-error" placeholder=" " minlength="3">
+                <p class="error-msg" id="name-error" role="alert">Por favor ingresa tu nombre completo (mínimo 3 caracteres).</p>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Correo electrónico</label>
+                <input type="email" id="contact-email" name="email_contacto" required aria-required="true" aria-describedby="email-error" placeholder=" " pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+                <p class="error-msg" id="email-error" role="alert">Ingresa un correo electrónico válido (ejemplo: usuario@correo.com).</p>
+              </div>
+              <div class="form-group">
+                <label for="contact-subject">Asunto</label>
+                <input type="text" id="contact-subject" name="asunto_contacto" required aria-required="true" aria-describedby="subject-error" placeholder=" ">
+                <p class="error-msg" id="subject-error" role="alert">Por favor ingresa el asunto de tu mensaje.</p>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Mensaje</label>
+                <textarea id="contact-message" name="mensaje_contacto" required aria-required="true" aria-describedby="message-error" placeholder=" " minlength="10"></textarea>
+                <p class="error-msg" id="message-error" role="alert">Escribe tu mensaje antes de enviar (mínimo 10 caracteres).</p>
+              </div>
+              <button type="button" class="btn btn-primary" onclick="validateContactForm()">Enviar mensaje</button>
+            </form>
+          </div>
+
+          <!-- Mapa e info -->
+          <div>
+            <div class="map-placeholder" role="img" aria-label="Mapa de ubicación de VØRTEX">📍 Ubicación — Quito, Ecuador</div>
+            <div class="contact-info">
+              <p>📍 Av. República E7-123, Quito, Ecuador</p>
+              <p>📞 +593 2 123 4567</p>
+              <p>✉️ soporte@vortex-streetwear.com</p>
+              <p>🕐 Lunes a Viernes: 9:00 — 18:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (Unified) -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h3>Links Rápidos</h3>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer__col">
+        <h3>Redes Sociales</h3>
+        <a href="#">📷 Instagram</a>
+        <a href="#">🎵 TikTok</a>
+        <a href="#">🐦 Twitter</a>
+        <a href="#">▶️ YouTube</a>
+      </div>
+      <div class="footer__col">
+        <h3>Newsletter</h3>
+        <p class="footer__col-desc">Recibe ofertas exclusivas y novedades.</p>
+        <form class="footer__newsletter" onsubmit="event.preventDefault();">
+          <label for="newsletter-email-cont" class="sr-only">Email para newsletter</label>
+          <input type="email" id="newsletter-email-cont" placeholder="Tu email" required>
+          <button type="submit">Suscribir</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 VØRTEX Streetwear. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL: Confirmar envío -->
+  <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="modal-contact-title">
+    <div class="modal">
+      <h2 id="modal-contact-title">✅ Mensaje enviado</h2>
+      <p>Tu mensaje ha sido enviado correctamente. Nuestro equipo de soporte te responderá dentro de 24 horas.</p>
+      <div class="modal__actions">
+        <button class="btn btn-primary btn-sm" onclick="closeModal('contact-modal')">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function() {
+      var expanded = mobileMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', expanded);
+    });
+
+    function validateContactForm() {
+      var form = document.getElementById('contact-form');
+      var groups = form.querySelectorAll('.form-group');
+      var valid = true;
+      groups.forEach(function(g) {
+        var input = g.querySelector('input, textarea');
+        if (input && !input.checkValidity()) {
+          g.classList.add('has-error');
+          valid = false;
+        } else {
+          g.classList.remove('has-error');
+        }
+      });
+      if (valid) openModal('contact-modal');
+    }
+
+    function openModal(id) {
+      var overlay = document.getElementById(id);
+      overlay.classList.add('active');
+      var firstBtn = overlay.querySelector('button, a');
+      if (firstBtn) firstBtn.focus();
+      overlay.addEventListener('keydown', trapFocus);
+    }
+    function closeModal(id) {
+      var overlay = document.getElementById(id);
+      overlay.classList.remove('active');
+      overlay.removeEventListener('keydown', trapFocus);
+    }
+    function trapFocus(e) {
+      if (e.key === 'Escape') { e.currentTarget.classList.remove('active'); e.currentTarget.removeEventListener('keydown', trapFocus); return; }
+      if (e.key !== 'Tab') return;
+      var focusable = e.currentTarget.querySelector('.modal').querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    document.querySelectorAll('.modal-overlay').forEach(function(o) {
+      o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); });
+    });
+  </script>
+</body>
+</html>

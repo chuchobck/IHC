@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VØRTEX — Tu pedido ha sido confirmado. Factura con desglose IVA 15%.">
+  <title>VØRTEX — Pedido Confirmado</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR (Unified) -->
+  <nav class="navbar" role="navigation" aria-label="Menú principal">
+    <div class="navbar__top">
+      <a href="index.html" class="navbar__brand">VØRTEX</a>
+      <div class="navbar__search-slot">
+        <form class="navbar__search-form" role="search" onsubmit="event.preventDefault()">
+          <input class="navbar__search-input" type="search" placeholder="Buscar en catálogo de ropa, accesorios..." aria-label="Buscar productos">
+          <button class="navbar__search-btn" type="submit" aria-label="Buscar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="navbar__actions">
+        <a href="login.html" class="navbar__login-link" aria-label="Iniciar sesión">Mi Cuenta</a>
+        <a href="carrito.html" class="navbar__cart" aria-label="Ver carrito de compras">🛒<span class="navbar__cart-badge" id="cart-badge">0</span></a>
+        <button class="navbar__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="navbar__bottom">
+      <div class="navbar__links">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="navbar__mobile" id="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="novedades.html">Novedades</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Mi Cuenta</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Stepper (All completed) -->
+    <div class="container">
+      <div class="stepper" aria-label="Progreso del pedido">
+        <div class="stepper__step completed">
+          <span class="stepper__circle">✓</span>
+          <span>Datos</span>
+        </div>
+        <div class="stepper__line done"></div>
+        <div class="stepper__step completed">
+          <span class="stepper__circle">✓</span>
+          <span>Pago</span>
+        </div>
+        <div class="stepper__line done"></div>
+        <div class="stepper__step active">
+          <span class="stepper__circle">✓</span>
+          <span>Confirmación</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="confirmation">
+          <div class="confirmation__icon" aria-hidden="true">✓</div>
+          <h1>¡Tu pedido fue realizado con éxito!</h1>
+          <p>Gracias por tu compra en VØRTEX. Recibirás un correo de confirmación pronto.</p>
+          <p class="confirmation__order-num">Pedido N.° <span id="order-number"></span></p>
+
+          <!-- Factura / Invoice Summary -->
+          <div class="confirmation__summary" data-id_factura="" id="factura-container">
+            <h3>Factura — Resumen de Compra</h3>
+
+            <!-- Invoice Details -->
+            <dl class="invoice-details">
+              <dt>N.° Factura</dt>
+              <dd id="id_factura"></dd>
+              <dt>Fecha</dt>
+              <dd id="fecha_factura"></dd>
+              <dt>Cliente</dt>
+              <dd id="id_cliente_factura">Cliente VØRTEX</dd>
+              <dt>Método de pago</dt>
+              <dd>Tarjeta ****1234</dd>
+            </dl>
+
+            <!-- Line Items -->
+            <div class="order-summary__item"><span>Hoodie Oversize Noir × 1</span><span>$89.99</span></div>
+            <div class="order-summary__item"><span>Tee Graphic Wave × 2</span><span>$79.98</span></div>
+            <div class="order-summary__item"><span>Cap Snapback V × 1</span><span>$29.99</span></div>
+
+            <!-- Tax Breakdown -->
+            <div class="order-summary__item" style="border-top:1px solid #D1D5DB;padding-top:var(--space-sm);margin-top:var(--space-sm)">
+              <span>Subtotal (sin IVA)</span>
+              <span>$199.96</span>
+            </div>
+            <div class="order-summary__item order-summary__item--iva" data-id_iva="IVA-001">
+              <span>IVA 15% (Ecuador)</span>
+              <span>$30.00</span>
+            </div>
+            <div class="order-summary__item">
+              <span>Envío</span>
+              <span>Gratis</span>
+            </div>
+            <div class="order-summary__total">
+              <span>Total Facturado</span>
+              <span>$229.96</span>
+            </div>
+          </div>
+
+          <div class="confirmation__actions">
+            <a href="index.html" class="btn btn-primary">Seguir comprando</a>
+            <a href="#" class="btn btn-outline">Descargar Factura</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (Unified) -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h3>Links Rápidos</h3>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer__col">
+        <h3>Redes Sociales</h3>
+        <a href="#">📷 Instagram</a>
+        <a href="#">🎵 TikTok</a>
+        <a href="#">🐦 Twitter</a>
+        <a href="#">▶️ YouTube</a>
+      </div>
+      <div class="footer__col">
+        <h3>Newsletter</h3>
+        <p class="footer__col-desc">Recibe ofertas exclusivas y novedades.</p>
+        <form class="footer__newsletter" onsubmit="event.preventDefault();">
+          <label for="newsletter-email-conf" class="sr-only">Email para newsletter</label>
+          <input type="email" id="newsletter-email-conf" placeholder="Tu email" required>
+          <button type="submit">Suscribir</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 VØRTEX Streetwear. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function() {
+      var expanded = mobileMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', expanded);
+    });
+
+    // Generate order & invoice numbers
+    var orderNum = 'VX-' + Math.floor(100000 + Math.random() * 900000);
+    var invoiceNum = 'FAC-' + Math.floor(10000 + Math.random() * 90000);
+    document.getElementById('order-number').textContent = orderNum;
+    document.getElementById('id_factura').textContent = invoiceNum;
+
+    // Set current date
+    var today = new Date();
+    var dateStr = today.getDate().toString().padStart(2, '0') + '/' +
+                  (today.getMonth() + 1).toString().padStart(2, '0') + '/' +
+                  today.getFullYear();
+    document.getElementById('fecha_factura').textContent = dateStr;
+
+    // Set factura data attribute
+    document.getElementById('factura-container').setAttribute('data-id_factura', invoiceNum);
+  </script>
+</body>
+</html>

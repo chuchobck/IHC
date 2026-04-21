@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VØRTEX — Iniciar sesión o crear una cuenta nueva. Acceso obligatorio para checkout.">
+  <title>VØRTEX — Iniciar Sesión</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR (Unified) -->
+  <nav class="navbar" role="navigation" aria-label="Menú principal">
+    <div class="navbar__top">
+      <a href="index.html" class="navbar__brand">VØRTEX</a>
+      <div class="navbar__search-slot">
+        <form class="navbar__search-form" role="search" onsubmit="event.preventDefault()">
+          <input class="navbar__search-input" type="search" placeholder="Buscar en catálogo de ropa, accesorios..." aria-label="Buscar productos">
+          <button class="navbar__search-btn" type="submit" aria-label="Buscar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="navbar__actions">
+        <a href="carrito.html" class="navbar__cart" aria-label="Ver carrito de compras">🛒<span class="navbar__cart-badge" id="cart-badge">3</span></a>
+        <button class="navbar__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="navbar__bottom">
+      <div class="navbar__links">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="navbar__mobile" id="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="novedades.html">Novedades</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Mi Cuenta</h1>
+        <p>Inicia sesión o crea una cuenta nueva para continuar con tu compra</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+
+        <div class="login-layout">
+          <!-- LOGIN -->
+          <div class="login-panel">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form" novalidate>
+              <div class="form-group">
+                <label for="email_cliente">Correo electrónico</label>
+                <input type="email" id="email_cliente" name="email_cliente" required aria-required="true" autocomplete="email" placeholder=" " pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+                <p class="error-msg" role="alert">Ingresa un correo electrónico válido.</p>
+              </div>
+              <div class="form-group">
+                <label for="clave_cliente">Contraseña</label>
+                <input type="password" id="clave_cliente" name="clave_cliente" required aria-required="true" autocomplete="current-password" placeholder=" " minlength="6">
+                <p class="error-msg" role="alert">La contraseña debe tener al menos 6 caracteres.</p>
+              </div>
+              <button type="button" class="btn btn-primary" style="width:100%" onclick="handleLogin()">Iniciar Sesión</button>
+              <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
+            </form>
+          </div>
+
+          <!-- REGISTER -->
+          <div class="login-panel">
+            <h2>Registrarse</h2>
+            <form id="register-form" novalidate>
+              <div class="form-group">
+                <label for="nombre_cliente">Nombre completo</label>
+                <input type="text" id="nombre_cliente" name="nombre_cliente" required aria-required="true" autocomplete="name" placeholder=" " minlength="3">
+                <p class="error-msg" role="alert">Ingresa tu nombre completo (mínimo 3 caracteres).</p>
+              </div>
+              <div class="form-group">
+                <label for="reg_email_cliente">Correo electrónico</label>
+                <input type="email" id="reg_email_cliente" name="email_cliente" required aria-required="true" autocomplete="email" placeholder=" " pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+                <p class="error-msg" role="alert">Ingresa un correo electrónico válido.</p>
+              </div>
+              <div class="form-group">
+                <label for="reg_clave_cliente">Contraseña</label>
+                <input type="password" id="reg_clave_cliente" name="clave_cliente" required aria-required="true" autocomplete="new-password" minlength="6" placeholder=" ">
+                <p class="error-msg" role="alert">La contraseña debe tener al menos 6 caracteres.</p>
+              </div>
+              <div class="form-group">
+                <label for="reg_confirm">Confirmar contraseña</label>
+                <input type="password" id="reg_confirm" name="confirm_clave" required aria-required="true" autocomplete="new-password" placeholder=" ">
+                <p class="error-msg" role="alert">Las contraseñas deben coincidir.</p>
+              </div>
+              <button type="button" class="btn btn-primary" style="width:100%" onclick="handleRegister()">Crear Cuenta</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (Unified) -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h3>Links Rápidos</h3>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer__col">
+        <h3>Redes Sociales</h3>
+        <a href="#">📷 Instagram</a>
+        <a href="#">🎵 TikTok</a>
+        <a href="#">🐦 Twitter</a>
+        <a href="#">▶️ YouTube</a>
+      </div>
+      <div class="footer__col">
+        <h3>Newsletter</h3>
+        <p class="footer__col-desc">Recibe ofertas exclusivas y novedades.</p>
+        <form class="footer__newsletter" onsubmit="event.preventDefault();">
+          <label for="newsletter-email-login" class="sr-only">Email para newsletter</label>
+          <input type="email" id="newsletter-email-login" placeholder="Tu email" required>
+          <button type="submit">Suscribir</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 VØRTEX Streetwear. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL: Registro exitoso -->
+  <div class="modal-overlay" id="register-modal" role="dialog" aria-modal="true" aria-labelledby="modal-reg-title">
+    <div class="modal">
+      <h2 id="modal-reg-title">✅ Registro exitoso</h2>
+      <p>¡Bienvenido a VØRTEX! Tu cuenta ha sido creada. Ahora puedes continuar con tu compra.</p>
+      <div class="modal__actions">
+        <a href="checkout.html" class="btn btn-primary btn-sm">Continuar al Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function() {
+      var expanded = mobileMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', expanded);
+    });
+
+    function handleLogin() {
+      var form = document.getElementById('login-form');
+      var groups = form.querySelectorAll('.form-group');
+      var valid = true;
+      groups.forEach(function(g) {
+        var input = g.querySelector('input');
+        if (input && !input.checkValidity()) {
+          g.classList.add('has-error');
+          valid = false;
+        } else {
+          g.classList.remove('has-error');
+        }
+      });
+      if (valid) {
+        sessionStorage.setItem('vortex_logged_in', 'true');
+        window.location.href = 'checkout.html';
+      }
+    }
+
+    function handleRegister() {
+      var form = document.getElementById('register-form');
+      var groups = form.querySelectorAll('.form-group');
+      var valid = true;
+      groups.forEach(function(g) {
+        var input = g.querySelector('input');
+        if (input && !input.checkValidity()) {
+          g.classList.add('has-error');
+          valid = false;
+        } else {
+          g.classList.remove('has-error');
+        }
+      });
+      var pass = document.getElementById('reg_clave_cliente').value;
+      var confirm = document.getElementById('reg_confirm').value;
+      if (pass !== confirm) {
+        document.getElementById('reg_confirm').closest('.form-group').classList.add('has-error');
+        valid = false;
+      }
+      if (valid) {
+        sessionStorage.setItem('vortex_logged_in', 'true');
+        openModal('register-modal');
+      }
+    }
+
+    function openModal(id) {
+      var overlay = document.getElementById(id);
+      overlay.classList.add('active');
+      var firstBtn = overlay.querySelector('button, a');
+      if (firstBtn) firstBtn.focus();
+      overlay.addEventListener('keydown', trapFocus);
+    }
+    function closeModal(id) {
+      var overlay = document.getElementById(id);
+      overlay.classList.remove('active');
+      overlay.removeEventListener('keydown', trapFocus);
+    }
+    function trapFocus(e) {
+      if (e.key === 'Escape') { e.currentTarget.classList.remove('active'); e.currentTarget.removeEventListener('keydown', trapFocus); return; }
+      if (e.key !== 'Tab') return;
+      var focusable = e.currentTarget.querySelector('.modal').querySelectorAll('button, a, input, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    document.querySelectorAll('.modal-overlay').forEach(function(o) {
+      o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); });
+    });
+  </script>
+</body>
+</html>
