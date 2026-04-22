@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -22,7 +22,7 @@
         </form>
       </div>
       <div class="navbar__actions">
-        <a href="login.html" class="navbar__login-link" aria-label="Iniciar sesión">Ingresar</a>
+        <a href="login.html" class="navbar__login-link" aria-label="Mi cuenta">👤</a>
         <a href="carrito.html" class="navbar__cart" aria-label="Ver carrito de compras">🛒<span class="navbar__cart-badge" id="cart-badge">3</span></a>
         <button class="navbar__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
       </div>
@@ -32,6 +32,7 @@
         <a href="index.html">Inicio</a>
         <a href="catalogo.html">Catálogo</a>
         <a href="novedades.html" aria-current="page">Novedades</a>
+                <a href="quienes-somos.html">Quiénes Somos</a>
         <a href="contacto.html">Contacto</a>
       </div>
     </div>
@@ -39,6 +40,7 @@
       <a href="index.html">Inicio</a>
       <a href="catalogo.html">Catálogo</a>
       <a href="novedades.html">Novedades</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
       <a href="contacto.html">Contacto</a>
       <a href="login.html">Iniciar Sesión</a>
     </div>
@@ -48,66 +50,93 @@
     <section class="page-header">
       <div class="container">
         <h1>Novedades</h1>
-        <p>Abril 2026 — Últimos lanzamientos de la temporada</p>
+        <p>Promociones activas de temporada: 2x1, regalos y looks por ocasión</p>
       </div>
     </section>
 
     <!-- Novedades Grid -->
     <section class="section">
       <div class="container">
+        <div class="novedades-filter" aria-label="Filtrar novedades por promoción u ocasión">
+          <button class="novedades-filter__btn active" data-filter="all" onclick="applyNovedadesFilter('all', this)">Todas</button>
+          <button class="novedades-filter__btn" data-filter="2x1" onclick="applyNovedadesFilter('2x1', this)">2x1</button>
+          <button class="novedades-filter__btn" data-filter="regalo" onclick="applyNovedadesFilter('regalo', this)">Regalos</button>
+          <button class="novedades-filter__btn" data-filter="ocasion" onclick="applyNovedadesFilter('ocasion', this)">Ocasión</button>
+          <button class="novedades-filter__btn" data-filter="weekend" onclick="applyNovedadesFilter('weekend', this)">Weekend</button>
+          <button class="novedades-filter__btn" data-filter="primera" onclick="applyNovedadesFilter('primera', this)">Primera compra</button>
+        </div>
+
         <div class="novedades-grid">
-          <article class="novedades-card" data-id="PROD-010">
-            <div class="img-placeholder" style="height:220px" role="img" aria-label="Imagen de Hoodie Phantom">Imagen producto</div>
+          <article class="novedades-card" id="promos-2x1" data-id="PROD-010" data-tag="2x1 promo">
+            <div class="novedades-card__img"><img src="assets/images/product-hoodie.png" alt="Promo 2x1 en hoodies"></div>
             <div class="novedades-card__body">
-              <span class="product-card__badge product-card__badge--new">NUEVO</span>
-              <h3 class="novedades-card__title">Hoodie Phantom</h3>
-              <p class="novedades-card__desc">Hoodie de algodón pesado con bordado reflectante. Ideal para noches urbanas.</p>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Ver producto</button>
+              <span class="product-card__badge product-card__badge--featured">PROMO 2x1</span>
+              <h3 class="novedades-card__title">2x1 en Hoodies Urban Essentials</h3>
+              <p class="novedades-card__desc">Llévate dos hoodies por tiempo limitado. Ideal para armar outfits semanales sin subir tu presupuesto.</p>
+              <div class="novedades-card__actions">
+                <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Aprovechar promo</button>
+                <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-010')">👁</button>
+              </div>
             </div>
           </article>
-          <article class="novedades-card" data-id="PROD-011">
-            <div class="img-placeholder" style="height:220px" role="img" aria-label="Imagen de Jogger Neon Stitch">Imagen producto</div>
+          <article class="novedades-card" id="promo-regalo" data-id="PROD-011" data-tag="regalo promo">
+            <div class="novedades-card__img"><img src="assets/images/product-cargo.png" alt="Promo con regalo por compra"></div>
             <div class="novedades-card__body">
-              <span class="product-card__badge product-card__badge--new">NUEVO</span>
-              <h3 class="novedades-card__title">Jogger Neon Stitch</h3>
-              <p class="novedades-card__desc">Jogger slim con costuras a contraste y bolsillos cargo funcionales.</p>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Ver producto</button>
+              <span class="product-card__badge product-card__badge--new">REGALO</span>
+              <h3 class="novedades-card__title">Regalo sorpresa desde $120</h3>
+              <p class="novedades-card__desc">En compras mayores a $120 te llevas un accesorio streetwear sorpresa para complementar tu look.</p>
+              <div class="novedades-card__actions">
+                <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Quiero mi regalo</button>
+                <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-011')">👁</button>
+              </div>
             </div>
           </article>
-          <article class="novedades-card" data-id="PROD-012">
-            <div class="img-placeholder" style="height:220px" role="img" aria-label="Imagen de Tee Overprint">Imagen producto</div>
+          <article class="novedades-card" id="looks-ocasion" data-id="PROD-012" data-tag="ocasion look">
+            <div class="novedades-card__img"><img src="assets/images/product-tee.png" alt="Looks por ocasión casual"></div>
             <div class="novedades-card__body">
-              <span class="product-card__badge product-card__badge--new">NUEVO</span>
-              <h3 class="novedades-card__title">Tee Overprint</h3>
-              <p class="novedades-card__desc">Camiseta oversized con gráficos impresos en toda la superficie.</p>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Ver producto</button>
+              <span class="product-card__badge product-card__badge--new">OCASIÓN</span>
+              <h3 class="novedades-card__title">Outfit Casual de Fin de Semana</h3>
+              <p class="novedades-card__desc">Combo camiseta + jogger con 20% OFF para salidas casuales o planes con amigos.</p>
+              <div class="novedades-card__actions">
+                <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Ver combo</button>
+                <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-012')">👁</button>
+              </div>
             </div>
           </article>
-          <article class="novedades-card" data-id="PROD-013">
-            <div class="img-placeholder" style="height:220px" role="img" aria-label="Imagen de Bucket Hat Raw">Imagen producto</div>
+          <article class="novedades-card" id="promo-regalos" data-id="PROD-013" data-tag="regalo combo">
+            <div class="novedades-card__img"><img src="assets/images/product-hoodie.png" alt="Pack regalo streetwear"></div>
             <div class="novedades-card__body">
-              <span class="product-card__badge product-card__badge--new">NUEVO</span>
-              <h3 class="novedades-card__title">Bucket Hat Raw</h3>
-              <p class="novedades-card__desc">Bucket hat en tejido resistente con etiqueta VØRTEX bordada.</p>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Ver producto</button>
+              <span class="product-card__badge product-card__badge--featured">REGALO</span>
+              <h3 class="novedades-card__title">Packs para Regalo Urbano</h3>
+              <p class="novedades-card__desc">Arma un pack regalo hoodie + tee + cap con empaque premium y precio especial.</p>
+              <div class="novedades-card__actions">
+                <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Armar regalo</button>
+                <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-013')">👁</button>
+              </div>
             </div>
           </article>
-          <article class="novedades-card" data-id="PROD-014">
-            <div class="img-placeholder" style="height:220px" role="img" aria-label="Imagen de Windbreaker Dual">Imagen producto</div>
+          <article class="novedades-card" id="promo-fin-semana" data-id="PROD-014" data-tag="weekend promo">
+            <div class="novedades-card__img"><img src="assets/images/product-cargo.png" alt="Oferta fin de semana en cargos"></div>
             <div class="novedades-card__body">
-              <span class="product-card__badge product-card__badge--new">NUEVO</span>
-              <h3 class="novedades-card__title">Windbreaker Dual</h3>
-              <p class="novedades-card__desc">Cortavientos reversible con capucha oculta. Dos looks en uno.</p>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Ver producto</button>
+              <span class="product-card__badge product-card__badge--new">WEEKEND</span>
+              <h3 class="novedades-card__title">Weekend Deal: Cargo + Tee</h3>
+              <p class="novedades-card__desc">Descuento del 25% en combinación de cargo pants y camisetas seleccionadas.</p>
+              <div class="novedades-card__actions">
+                <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Activar oferta</button>
+                <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-014')">👁</button>
+              </div>
             </div>
           </article>
-          <article class="novedades-card" data-id="PROD-015">
-            <div class="img-placeholder" style="height:220px" role="img" aria-label="Imagen de Cargo Short Utility">Imagen producto</div>
+          <article class="novedades-card" id="promo-primer-compra" data-id="PROD-015" data-tag="primera promo">
+            <div class="novedades-card__img"><img src="assets/images/product-tee.png" alt="Descuento para primera compra"></div>
             <div class="novedades-card__body">
-              <span class="product-card__badge product-card__badge--new">NUEVO</span>
-              <h3 class="novedades-card__title">Cargo Short Utility</h3>
-              <p class="novedades-card__desc">Short cargo con cintura elástica y 6 bolsillos funcionales.</p>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Ver producto</button>
+              <span class="product-card__badge product-card__badge--featured">PRIMERA COMPRA</span>
+              <h3 class="novedades-card__title">15% OFF en tu primer pedido</h3>
+              <p class="novedades-card__desc">Usa el código VORTEX2026 y empieza tu colección con descuento inmediato.</p>
+              <div class="novedades-card__actions">
+                <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Usar descuento</button>
+                <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-015')">👁</button>
+              </div>
             </div>
           </article>
         </div>
@@ -117,34 +146,35 @@
   </main>
 
   <!-- FOOTER (Unified) -->
-  <footer class="footer" role="contentinfo">
+      <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div class="footer__col">
-        <h3>Links Rápidos</h3>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="novedades.html">Novedades</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#">FAQ</a>
+        <h3>Inicio</h3>
+        <a href="index.html">Portada</a>
+        <a href="index.html#mas-vendidos">Mas vendidos</a>
+        <a href="index.html#categorias">Categorias</a>
+        <a href="index.html#promos">Promociones</a>
+        <a href="index.html#testimonios">Testimonios</a>
       </div>
       <div class="footer__col">
-        <h3>Redes Sociales</h3>
-        <a href="#">📷 Instagram</a>
-        <a href="#">🎵 TikTok</a>
-        <a href="#">🐦 Twitter</a>
-        <a href="#">▶️ YouTube</a>
+        <h3>Categorias</h3>
+        <a href="catalogo.html?cat=drops">Drops semanales</a>
+        <a href="catalogo.html?cat=basicos">Basicos premium</a>
+        <a href="catalogo.html?cat=ocasion">Ocasion y eventos</a>
+        <a href="catalogo.html?cat=regalos">Regalos y combos</a>
+        <a href="catalogo.html?cat=accesorios">Accesorios urbanos</a>
       </div>
       <div class="footer__col">
-        <h3>Newsletter</h3>
-        <p class="footer__col-desc">Recibe ofertas exclusivas y novedades.</p>
-        <form class="footer__newsletter" onsubmit="event.preventDefault();">
-          <label for="newsletter-email-nov" class="sr-only">Email para newsletter</label>
-          <input type="email" id="newsletter-email-nov" placeholder="Tu email" required>
-          <button type="submit">Suscribir</button>
-        </form>
+        <h3>Novedades y Promos</h3>
+        <a href="novedades.html#promos-2x1">2x1 de temporada</a>
+        <a href="novedades.html#promo-regalo">Regalo por compra</a>
+        <a href="novedades.html#looks-ocasion">Looks por ocasion</a>
+        <a href="novedades.html#promo-fin-semana">Weekend deals</a>
+        <a href="novedades.html#promo-primer-compra">Primera compra 15% OFF</a>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>&copy; 2026 VØRTEX Streetwear. Todos los derechos reservados.</p>
+      <p>&copy; 2026 VORTEX Streetwear. Todos los derechos reservados.</p>
     </div>
   </footer>
 
@@ -160,6 +190,57 @@
     </div>
   </div>
 
+  <!-- MODAL: DETALLE DE PRODUCTO -->
+  <div class="modal-overlay" id="product-detail-modal" role="dialog" aria-modal="true" aria-labelledby="product-detail-title">
+    <div class="modal modal--product-detail">
+      <div class="product-detail">
+        <div class="product-detail__media">
+          <img id="detail-image" src="assets/images/product-hoodie.png" alt="Detalle del producto">
+        </div>
+        <div class="product-detail__info">
+          <span class="product-card__badge product-card__badge--featured" id="detail-badge">PROMO</span>
+          <h2 id="product-detail-title">Producto</h2>
+          <p class="product-detail__price" id="detail-price">$0.00</p>
+          <p class="product-detail__desc" id="detail-desc">Descripción del producto.</p>
+          <ul class="product-detail__bullets" id="detail-bullets"></ul>
+
+          <div class="size-block">
+            <div class="size-block__header">
+              <label for="detail-size">Selecciona talla</label>
+              <button class="size-guide-btn" type="button" onclick="toggleSizeGuide()">Guía de tallas</button>
+            </div>
+            <select id="detail-size" class="size-select" aria-label="Seleccionar talla">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+            <p class="size-guide-text" id="size-guide-text">Referencia rápida: S(84-88 cm busto), M(89-94), L(95-101), XL(102-108).</p>
+
+            <form class="size-recommender" onsubmit="event.preventDefault(); recommendSize();">
+              <h4>Recomendación de talla</h4>
+              <div class="size-recommender__row">
+                <label for="busto-input">Busto (cm)</label>
+                <input type="number" id="busto-input" min="70" max="140" required>
+              </div>
+              <div class="size-recommender__row">
+                <label for="cintura-input">Cintura (cm)</label>
+                <input type="number" id="cintura-input" min="55" max="130" required>
+              </div>
+              <button class="btn btn-outline btn-sm" type="submit">Calcular talla</button>
+              <p class="size-recommender__result" id="size-result">Ingresa tus medidas para recomendarte una talla.</p>
+            </form>
+          </div>
+
+          <div class="modal__actions">
+            <button class="btn btn-primary btn-sm" onclick="closeModal('product-detail-modal')">Agregar y cerrar</button>
+            <button class="btn btn-outline btn-sm" onclick="closeModal('product-detail-modal')">Seguir viendo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     var hamburger = document.getElementById('hamburger');
     var mobileMenu = document.getElementById('mobile-menu');
@@ -167,6 +248,57 @@
       var expanded = mobileMenu.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', expanded);
     });
+    var productDetails = {
+      'PROD-010': {
+        title: '2x1 Hoodies Urban Essentials',
+        badge: 'PROMO 2x1',
+        price: '$89.99 c/u',
+        image: 'assets/images/product-hoodie.png',
+        desc: 'Hoodie de algodón pesado para clima templado/frío con acabados premium.',
+        bullets: ['Tejido 420 gsm', 'Corte oversize', 'Color resistente al lavado']
+      },
+      'PROD-011': {
+        title: 'Regalo sorpresa por compra',
+        badge: 'REGALO',
+        price: 'Desde $120',
+        image: 'assets/images/product-cargo.png',
+        desc: 'Activa un regalo sorpresa en compras elegibles de nueva colección.',
+        bullets: ['Accesorio edición limitada', 'Aplica en compras seleccionadas', 'Stock limitado']
+      },
+      'PROD-012': {
+        title: 'Combo ocasión casual',
+        badge: 'OCASIÓN',
+        price: '$109.99',
+        image: 'assets/images/product-tee.png',
+        desc: 'Look armado para salidas casuales, cómodo y fácil de combinar.',
+        bullets: ['Tee + jogger', '20% de descuento', 'Disponible en tallas S a XL']
+      },
+      'PROD-013': {
+        title: 'Pack regalo urbano',
+        badge: 'REGALO',
+        price: '$129.99',
+        image: 'assets/images/product-hoodie.png',
+        desc: 'Pack especial para regalos con empaque premium y selección curada.',
+        bullets: ['Empaque premium', 'Selección curada', 'Ideal para fechas especiales']
+      },
+      'PROD-014': {
+        title: 'Weekend Deal Cargo + Tee',
+        badge: 'WEEKEND',
+        price: '$94.99',
+        image: 'assets/images/product-cargo.png',
+        desc: 'Oferta de fin de semana para completar look urbano con descuento.',
+        bullets: ['25% OFF', 'Duración limitada', 'Combinación más vendida']
+      },
+      'PROD-015': {
+        title: 'Primera compra 15% OFF',
+        badge: 'PRIMERA COMPRA',
+        price: 'Código VORTEX2026',
+        image: 'assets/images/product-tee.png',
+        desc: 'Descuento para nuevos clientes sobre prendas seleccionadas.',
+        bullets: ['Activa en checkout', 'Acumulable con envío gratis', 'Válido en nuevos ingresos']
+      }
+    };
+
     function openModal(id) {
       var overlay = document.getElementById(id);
       overlay.classList.add('active');
@@ -187,9 +319,79 @@
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
+
+    function openProductDetail(productId) {
+      var data = productDetails[productId];
+      if (!data) return;
+      document.getElementById('product-detail-title').textContent = data.title;
+      document.getElementById('detail-badge').textContent = data.badge;
+      document.getElementById('detail-price').textContent = data.price;
+      document.getElementById('detail-desc').textContent = data.desc;
+      document.getElementById('detail-image').src = data.image;
+      document.getElementById('detail-image').alt = data.title;
+
+      var list = document.getElementById('detail-bullets');
+      list.innerHTML = '';
+      data.bullets.forEach(function(item) {
+        var li = document.createElement('li');
+        li.textContent = item;
+        list.appendChild(li);
+      });
+
+      document.getElementById('size-result').textContent = 'Ingresa tus medidas para recomendarte una talla.';
+      openModal('product-detail-modal');
+    }
+
+    function toggleSizeGuide() {
+      var guide = document.getElementById('size-guide-text');
+      guide.classList.toggle('active');
+    }
+
+    function recommendSize() {
+      var busto = Number.parseInt(document.getElementById('busto-input').value, 10);
+      var cintura = Number.parseInt(document.getElementById('cintura-input').value, 10);
+      var result;
+
+      if (busto <= 88 && cintura <= 74) result = 'Tu talla recomendada es S.';
+      else if (busto <= 94 && cintura <= 80) result = 'Tu talla recomendada es M.';
+      else if (busto <= 101 && cintura <= 88) result = 'Tu talla recomendada es L.';
+      else result = 'Tu talla recomendada es XL.';
+
+      document.getElementById('size-result').textContent = result;
+    }
+
+    function applyNovedadesFilter(filter, trigger) {
+      document.querySelectorAll('.novedades-filter__btn').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      if (trigger) trigger.classList.add('active');
+
+      document.querySelectorAll('.novedades-card').forEach(function(card) {
+        var tags = card.dataset.tag || '';
+        if (filter === 'all' || tags.includes(filter)) {
+          card.classList.remove('is-hidden');
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+    }
+
+    (function initFilterFromURL() {
+      var params = new URLSearchParams(globalThis.location.search);
+      var filtro = params.get('filtro');
+      if (!filtro) return;
+      var btn = document.querySelector('.novedades-filter__btn[data-filter="' + filtro + '"]');
+      applyNovedadesFilter(filtro, btn || null);
+    })();
+
     document.querySelectorAll('.modal-overlay').forEach(function(o) {
       o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); });
     });
   </script>
 </body>
 </html>
+
+
+
+
+

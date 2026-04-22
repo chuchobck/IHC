@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VØRTEX — Catálogo completo de streetwear urbano. Paso 1: Agrega productos al carrito.">
+  <meta name="description" content="VØRTEX — Catálogo completo de streetwear urbano.">
   <title>VØRTEX — Catálogo</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,7 +22,7 @@
         </form>
       </div>
       <div class="navbar__actions">
-        <a href="login.html" class="navbar__login-link" aria-label="Iniciar sesión">Ingresar</a>
+        <a href="login.html" class="navbar__login-link" aria-label="Mi cuenta">👤</a>
         <a href="carrito.html" class="navbar__cart" aria-label="Ver carrito de compras">🛒<span class="navbar__cart-badge" id="cart-badge">3</span></a>
         <button class="navbar__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
       </div>
@@ -32,6 +32,7 @@
         <a href="index.html">Inicio</a>
         <a href="catalogo.html" aria-current="page">Catálogo</a>
         <a href="novedades.html">Novedades</a>
+                <a href="quienes-somos.html">Quiénes Somos</a>
         <a href="contacto.html">Contacto</a>
       </div>
     </div>
@@ -39,6 +40,7 @@
       <a href="index.html">Inicio</a>
       <a href="catalogo.html">Catálogo</a>
       <a href="novedades.html">Novedades</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
       <a href="contacto.html">Contacto</a>
       <a href="login.html">Iniciar Sesión</a>
     </div>
@@ -49,7 +51,7 @@
     <section class="page-header">
       <div class="container">
         <h1>Catálogo</h1>
-        <p>Explora toda nuestra colección de streetwear urbano — Paso 1: Agrega productos a tu carrito</p>
+        <p>Explora toda nuestra colección de streetwear urbano</p>
       </div>
     </section>
 
@@ -61,10 +63,11 @@
             <h3>Filtros</h3>
             <div class="filter-group">
               <h4>Categoría</h4>
-              <label><input type="checkbox" name="id_categoria" value="1"> Hoodies</label>
-              <label><input type="checkbox" name="id_categoria" value="2"> Camisetas</label>
-              <label><input type="checkbox" name="id_categoria" value="3"> Pantalones</label>
-              <label><input type="checkbox" name="id_categoria" value="4"> Accesorios</label>
+              <label><input type="checkbox" name="id_categoria" value="1"> Drops Semanales</label>
+              <label><input type="checkbox" name="id_categoria" value="2"> Básicos Premium</label>
+              <label><input type="checkbox" name="id_categoria" value="3"> Ocasión y Eventos</label>
+              <label><input type="checkbox" name="id_categoria" value="4"> Regalos y Combos</label>
+              <label><input type="checkbox" name="id_categoria" value="5"> Accesorios Urbanos</label>
             </div>
             <div class="filter-group">
               <h4>Precio</h4>
@@ -81,71 +84,95 @@
             </div>
           </aside>
 
-          <!-- Products Grid (Paso 1: Agregar al carrito) -->
+          <!-- Products Grid -->
           <div>
             <div class="products-grid">
               <article class="product-card" data-id="PROD-001" data-nombre="Hoodie Oversize Noir" data-precio="89.99" data-id_categoria="1">
-                <div class="product-card__img img-placeholder" role="img" aria-label="Imagen de Hoodie Oversize Noir">Imagen producto</div>
+                <div class="product-card__img"><img src="assets/images/product-hoodie.png" alt="Hoodie Oversize Noir"></div>
                 <div class="product-card__body">
                   <h3 class="product-card__name" id="nombre_producto_1">Hoodie Oversize Noir</h3>
                   <div class="product-card__price"><span class="current">$89.99</span><span class="old">$120.00</span></div>
-                  <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+                  <div class="product-card__actions">
+                    <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
+                    <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-001')">👁</button>
+                  </div>
                 </div>
               </article>
               <article class="product-card" data-id="PROD-002" data-nombre="Cargo Pants Urban" data-precio="74.99" data-id_categoria="3">
-                <div class="product-card__img img-placeholder" role="img" aria-label="Imagen de Cargo Pants Urban">Imagen producto</div>
+                <div class="product-card__img"><img src="assets/images/product-cargo.png" alt="Cargo Pants Urban"></div>
                 <div class="product-card__body">
                   <h3 class="product-card__name" id="nombre_producto_2">Cargo Pants Urban</h3>
                   <div class="product-card__price"><span class="current">$74.99</span><span class="old">$95.00</span></div>
-                  <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+                  <div class="product-card__actions">
+                    <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
+                    <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-002')">👁</button>
+                  </div>
                 </div>
               </article>
               <article class="product-card" data-id="PROD-003" data-nombre="Tee Graphic Wave" data-precio="39.99" data-id_categoria="2">
-                <div class="product-card__img img-placeholder" role="img" aria-label="Imagen de Tee Graphic Wave">Imagen producto</div>
+                <div class="product-card__img"><img src="assets/images/product-tee.png" alt="Tee Graphic Wave"></div>
                 <div class="product-card__body">
                   <h3 class="product-card__name" id="nombre_producto_3">Tee Graphic Wave</h3>
                   <div class="product-card__price"><span class="current">$39.99</span><span class="old">$55.00</span></div>
-                  <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+                  <div class="product-card__actions">
+                    <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
+                    <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-003')">👁</button>
+                  </div>
                 </div>
               </article>
               <article class="product-card" data-id="PROD-004" data-nombre="Cap Snapback V" data-precio="29.99" data-id_categoria="4">
-                <div class="product-card__img img-placeholder" role="img" aria-label="Imagen de Cap Snapback V">Imagen producto</div>
+                <div class="product-card__img"><img src="assets/images/product-hoodie.png" alt="Cap Snapback V"></div>
                 <div class="product-card__body">
                   <h3 class="product-card__name" id="nombre_producto_4">Cap Snapback V</h3>
                   <div class="product-card__price"><span class="current">$29.99</span><span class="old">$40.00</span></div>
-                  <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+                  <div class="product-card__actions">
+                    <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
+                    <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-004')">👁</button>
+                  </div>
                 </div>
               </article>
               <article class="product-card" data-id="PROD-005" data-nombre="Jogger Stealth" data-precio="64.99" data-id_categoria="3">
-                <div class="product-card__img img-placeholder" role="img" aria-label="Imagen de Jogger Stealth">Imagen producto</div>
+                <div class="product-card__img"><img src="assets/images/product-cargo.png" alt="Jogger Stealth"></div>
                 <div class="product-card__body">
                   <h3 class="product-card__name" id="nombre_producto_5">Jogger Stealth</h3>
                   <div class="product-card__price"><span class="current">$64.99</span><span class="old">$85.00</span></div>
-                  <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+                  <div class="product-card__actions">
+                    <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
+                    <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-005')">👁</button>
+                  </div>
                 </div>
               </article>
               <article class="product-card" data-id="PROD-006" data-nombre="Hoodie Zip Chrome" data-precio="99.99" data-id_categoria="1">
-                <div class="product-card__img img-placeholder" role="img" aria-label="Imagen de Hoodie Zip Chrome">Imagen producto</div>
+                <div class="product-card__img"><img src="assets/images/product-hoodie.png" alt="Hoodie Zip Chrome"></div>
                 <div class="product-card__body">
                   <h3 class="product-card__name" id="nombre_producto_6">Hoodie Zip Chrome</h3>
                   <div class="product-card__price"><span class="current">$99.99</span><span class="old">$130.00</span></div>
-                  <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+                  <div class="product-card__actions">
+                    <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
+                    <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-006')">👁</button>
+                  </div>
                 </div>
               </article>
               <article class="product-card" data-id="PROD-007" data-nombre="Tee Minimal Logo" data-precio="34.99" data-id_categoria="2">
-                <div class="product-card__img img-placeholder" role="img" aria-label="Imagen de Tee Minimal Logo">Imagen producto</div>
+                <div class="product-card__img"><img src="assets/images/product-tee.png" alt="Tee Minimal Logo"></div>
                 <div class="product-card__body">
                   <h3 class="product-card__name" id="nombre_producto_7">Tee Minimal Logo</h3>
                   <div class="product-card__price"><span class="current">$34.99</span><span class="old">$45.00</span></div>
-                  <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+                  <div class="product-card__actions">
+                    <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
+                    <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-007')">👁</button>
+                  </div>
                 </div>
               </article>
               <article class="product-card" data-id="PROD-008" data-nombre="Beanie Knit Dark" data-precio="24.99" data-id_categoria="4">
-                <div class="product-card__img img-placeholder" role="img" aria-label="Imagen de Beanie Knit Dark">Imagen producto</div>
+                <div class="product-card__img"><img src="assets/images/product-cargo.png" alt="Beanie Knit Dark"></div>
                 <div class="product-card__body">
                   <h3 class="product-card__name" id="nombre_producto_8">Beanie Knit Dark</h3>
                   <div class="product-card__price"><span class="current">$24.99</span><span class="old">$35.00</span></div>
-                  <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+                  <div class="product-card__actions">
+                    <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
+                    <button class="btn-icon" aria-label="Ver detalle del producto" onclick="openProductDetail('PROD-008')">👁</button>
+                  </div>
                 </div>
               </article>
             </div>
@@ -163,38 +190,39 @@
   </main>
 
   <!-- FOOTER (Unified) -->
-  <footer class="footer" role="contentinfo">
+      <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div class="footer__col">
-        <h3>Links Rápidos</h3>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="novedades.html">Novedades</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#">FAQ</a>
+        <h3>Inicio</h3>
+        <a href="index.html">Portada</a>
+        <a href="index.html#mas-vendidos">Mas vendidos</a>
+        <a href="index.html#categorias">Categorias</a>
+        <a href="index.html#promos">Promociones</a>
+        <a href="index.html#testimonios">Testimonios</a>
       </div>
       <div class="footer__col">
-        <h3>Redes Sociales</h3>
-        <a href="#">📷 Instagram</a>
-        <a href="#">🎵 TikTok</a>
-        <a href="#">🐦 Twitter</a>
-        <a href="#">▶️ YouTube</a>
+        <h3>Categorias</h3>
+        <a href="catalogo.html?cat=drops">Drops semanales</a>
+        <a href="catalogo.html?cat=basicos">Basicos premium</a>
+        <a href="catalogo.html?cat=ocasion">Ocasion y eventos</a>
+        <a href="catalogo.html?cat=regalos">Regalos y combos</a>
+        <a href="catalogo.html?cat=accesorios">Accesorios urbanos</a>
       </div>
       <div class="footer__col">
-        <h3>Newsletter</h3>
-        <p class="footer__col-desc">Recibe ofertas exclusivas y novedades.</p>
-        <form class="footer__newsletter" onsubmit="event.preventDefault();">
-          <label for="newsletter-email-cat" class="sr-only">Email para newsletter</label>
-          <input type="email" id="newsletter-email-cat" placeholder="Tu email" required>
-          <button type="submit">Suscribir</button>
-        </form>
+        <h3>Novedades y Promos</h3>
+        <a href="novedades.html#promos-2x1">2x1 de temporada</a>
+        <a href="novedades.html#promo-regalo">Regalo por compra</a>
+        <a href="novedades.html#looks-ocasion">Looks por ocasion</a>
+        <a href="novedades.html#promo-fin-semana">Weekend deals</a>
+        <a href="novedades.html#promo-primer-compra">Primera compra 15% OFF</a>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>&copy; 2026 VØRTEX Streetwear. Todos los derechos reservados.</p>
+      <p>&copy; 2026 VORTEX Streetwear. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- MODAL: Agregar al carrito -->
+  <!-- MODAL: Agregar -->
   <div class="modal-overlay" id="add-cart-modal" role="dialog" aria-modal="true" aria-labelledby="modal-add-title">
     <div class="modal">
       <h2 id="modal-add-title">Producto agregado</h2>
@@ -202,6 +230,56 @@
       <div class="modal__actions">
         <button class="btn btn-outline btn-sm" onclick="closeModal('add-cart-modal')">Seguir comprando</button>
         <a href="carrito.html" class="btn btn-primary btn-sm">Ir al carrito</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="product-detail-modal" role="dialog" aria-modal="true" aria-labelledby="product-detail-title">
+    <div class="modal modal--product-detail">
+      <div class="product-detail">
+        <div class="product-detail__media">
+          <img id="detail-image" src="assets/images/product-hoodie.png" alt="Detalle del producto">
+        </div>
+        <div class="product-detail__info">
+          <span class="product-card__badge product-card__badge--featured" id="detail-badge">DETALLE</span>
+          <h2 id="product-detail-title">Producto</h2>
+          <p class="product-detail__price" id="detail-price">$0.00</p>
+          <p class="product-detail__desc" id="detail-desc">Descripción del producto.</p>
+          <ul class="product-detail__bullets" id="detail-bullets"></ul>
+
+          <div class="size-block">
+            <div class="size-block__header">
+              <label for="detail-size">Selecciona talla</label>
+              <button class="size-guide-btn" type="button" onclick="toggleSizeGuide()">Guía de tallas</button>
+            </div>
+            <select id="detail-size" class="size-select" aria-label="Seleccionar talla">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+            <p class="size-guide-text" id="size-guide-text">Referencia rápida: S(84-88 cm busto), M(89-94), L(95-101), XL(102-108).</p>
+
+            <form class="size-recommender" onsubmit="event.preventDefault(); recommendSize();">
+              <h4>Recomendación de talla</h4>
+              <div class="size-recommender__row">
+                <label for="busto-input">Busto (cm)</label>
+                <input type="number" id="busto-input" min="70" max="140" required>
+              </div>
+              <div class="size-recommender__row">
+                <label for="cintura-input">Cintura (cm)</label>
+                <input type="number" id="cintura-input" min="55" max="130" required>
+              </div>
+              <button class="btn btn-outline btn-sm" type="submit">Calcular talla</button>
+              <p class="size-recommender__result" id="size-result">Ingresa tus medidas para recomendarte una talla.</p>
+            </form>
+          </div>
+
+          <div class="modal__actions">
+            <button class="btn btn-primary btn-sm" onclick="closeModal('product-detail-modal')">Agregar</button>
+            <button class="btn btn-outline btn-sm" onclick="closeModal('product-detail-modal')">Cerrar</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -233,9 +311,63 @@
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
+
+    var productDetails = {
+      'PROD-001': { title: 'Hoodie Oversize Noir', price: '$89.99', image: 'assets/images/product-hoodie.png', desc: 'Hoodie premium con corte oversize para look urbano.', bullets: ['Algodón pesado', 'Corte amplio', 'Color noir'] },
+      'PROD-002': { title: 'Cargo Pants Urban', price: '$74.99', image: 'assets/images/product-cargo.png', desc: 'Pantalón cargo versátil para outfits diarios.', bullets: ['Bolsillos funcionales', 'Tela resistente', 'Fit urbano'] },
+      'PROD-003': { title: 'Tee Graphic Wave', price: '$39.99', image: 'assets/images/product-tee.png', desc: 'Camiseta con gráfico frontal de edición urbana.', bullets: ['Algodón suave', 'Estampado durable', 'Regular fit'] },
+      'PROD-004': { title: 'Cap Snapback V', price: '$29.99', image: 'assets/images/product-hoodie.png', desc: 'Snapback para completar un look streetwear.', bullets: ['Cierre ajustable', 'Visera firme', 'Logo bordado'] },
+      'PROD-005': { title: 'Jogger Stealth', price: '$64.99', image: 'assets/images/product-cargo.png', desc: 'Jogger cómodo con estética minimal street.', bullets: ['Pretina elástica', 'Tobillo ajustado', 'Tela suave'] },
+      'PROD-006': { title: 'Hoodie Zip Chrome', price: '$99.99', image: 'assets/images/product-hoodie.png', desc: 'Hoodie con cierre frontal y detalle premium.', bullets: ['Cierre metálico', 'Capucha amplia', 'Acabado premium'] },
+      'PROD-007': { title: 'Tee Minimal Logo', price: '$34.99', image: 'assets/images/product-tee.png', desc: 'Básico premium con branding minimal.', bullets: ['Logo discreto', 'Combinable', 'Uso diario'] },
+      'PROD-008': { title: 'Beanie Knit Dark', price: '$24.99', image: 'assets/images/product-cargo.png', desc: 'Beanie tejido para clima fresco.', bullets: ['Tejido térmico', 'Ajuste cómodo', 'Estilo urbano'] }
+    };
+
+    function openProductDetail(productId) {
+      var data = productDetails[productId];
+      if (!data) return;
+      document.getElementById('product-detail-title').textContent = data.title;
+      document.getElementById('detail-price').textContent = data.price;
+      document.getElementById('detail-desc').textContent = data.desc;
+      document.getElementById('detail-image').src = data.image;
+      document.getElementById('detail-image').alt = data.title;
+
+      var list = document.getElementById('detail-bullets');
+      list.innerHTML = '';
+      data.bullets.forEach(function(item) {
+        var li = document.createElement('li');
+        li.textContent = item;
+        list.appendChild(li);
+      });
+
+      document.getElementById('size-result').textContent = 'Ingresa tus medidas para recomendarte una talla.';
+      openModal('product-detail-modal');
+    }
+
+    function toggleSizeGuide() {
+      document.getElementById('size-guide-text').classList.toggle('active');
+    }
+
+    function recommendSize() {
+      var busto = Number.parseInt(document.getElementById('busto-input').value, 10);
+      var cintura = Number.parseInt(document.getElementById('cintura-input').value, 10);
+      var result;
+      if (busto <= 88 && cintura <= 74) result = 'Tu talla recomendada es S.';
+      else if (busto <= 94 && cintura <= 80) result = 'Tu talla recomendada es M.';
+      else if (busto <= 101 && cintura <= 88) result = 'Tu talla recomendada es L.';
+      else result = 'Tu talla recomendada es XL.';
+      document.getElementById('size-result').textContent = result;
+    }
+
     document.querySelectorAll('.modal-overlay').forEach(function(o) {
       o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); });
     });
   </script>
 </body>
 </html>
+
+
+
+
+
+

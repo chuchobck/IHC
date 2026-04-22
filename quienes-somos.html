@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VØRTEX — Quiénes Somos.">
+  <title>VØRTEX — Quiénes Somos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Menú principal">
+    <div class="navbar__top">
+      <a href="index.html" class="navbar__brand">VØRTEX</a>
+      <div class="navbar__search-slot">
+        <form class="navbar__search-form" role="search" onsubmit="event.preventDefault()">
+          <input class="navbar__search-input" type="search" placeholder="Buscar en catálogo de ropa, accesorios..." aria-label="Buscar productos">
+          <button class="navbar__search-btn" type="submit" aria-label="Buscar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="navbar__actions">
+        <a href="login.html" class="navbar__login-link" aria-label="Mi cuenta">👤</a>
+        <a href="carrito.html" class="navbar__cart" aria-label="Ver carrito de compras">🛒<span class="navbar__cart-badge" id="cart-badge">3</span></a>
+        <button class="navbar__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="navbar__bottom">
+      <div class="navbar__links">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="quienes-somos.html" aria-current="page">Quiénes Somos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="navbar__mobile" id="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="novedades.html">Novedades</a>
+      <a href="quienes-somos.html">Quiénes Somos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Iniciar Sesión</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Quiénes Somos</h1>
+        <p>Una marca urbana creada para gente que quiere vestir con actitud y calidad.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-card__icon">🧵</div>
+            <h3 class="why-card__title">Calidad</h3>
+            <p class="why-card__desc">Seleccionamos materiales durables para uso diario.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon">🎨</div>
+            <h3 class="why-card__title">Diseño</h3>
+            <p class="why-card__desc">Trabajamos estilos streetwear modernos y combinables.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon">🚚</div>
+            <h3 class="why-card__title">Servicio</h3>
+            <p class="why-card__desc">Buscamos que la compra sea simple, rápida y confiable.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon">🤝</div>
+            <h3 class="why-card__title">Comunidad</h3>
+            <p class="why-card__desc">VØRTEX crece con su comunidad y feedback constante.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h3>Inicio</h3>
+        <a href="index.html">Portada</a>
+        <a href="index.html#mas-vendidos">Mas vendidos</a>
+        <a href="index.html#categorias">Categorias</a>
+        <a href="index.html#promos">Promociones</a>
+        <a href="index.html#testimonios">Testimonios</a>
+      </div>
+      <div class="footer__col">
+        <h3>Categorias</h3>
+        <a href="catalogo.html?cat=drops">Drops semanales</a>
+        <a href="catalogo.html?cat=basicos">Basicos premium</a>
+        <a href="catalogo.html?cat=ocasion">Ocasion y eventos</a>
+        <a href="catalogo.html?cat=regalos">Regalos y combos</a>
+        <a href="catalogo.html?cat=accesorios">Accesorios urbanos</a>
+      </div>
+      <div class="footer__col">
+        <h3>Novedades y Promos</h3>
+        <a href="novedades.html#promos-2x1">2x1 de temporada</a>
+        <a href="novedades.html#promo-regalo">Regalo por compra</a>
+        <a href="novedades.html#looks-ocasion">Looks por ocasion</a>
+        <a href="novedades.html#promo-fin-semana">Weekend deals</a>
+        <a href="novedades.html#promo-primer-compra">Primera compra 15% OFF</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 VORTEX Streetwear. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function() {
+      var expanded = mobileMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', expanded);
+    });
+  </script>
+</body>
+</html>

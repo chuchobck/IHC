@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -22,7 +22,7 @@
         </form>
       </div>
       <div class="navbar__actions">
-        <a href="login.html" class="navbar__login-link" aria-label="Iniciar sesión">Ingresar</a>
+        <a href="login.html" class="navbar__login-link" aria-label="Mi cuenta">👤</a>
         <a href="carrito.html" class="navbar__cart" aria-label="Ver carrito de compras">
           🛒
           <span class="navbar__cart-badge" id="cart-badge">3</span>
@@ -37,6 +37,7 @@
         <a href="index.html" aria-current="page">Inicio</a>
         <a href="catalogo.html">Catálogo</a>
         <a href="novedades.html">Novedades</a>
+                <a href="quienes-somos.html">Quiénes Somos</a>
         <a href="contacto.html">Contacto</a>
       </div>
     </div>
@@ -44,6 +45,7 @@
       <a href="index.html">Inicio</a>
       <a href="catalogo.html">Catálogo</a>
       <a href="novedades.html">Novedades</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
       <a href="contacto.html">Contacto</a>
       <a href="login.html">Iniciar Sesión</a>
     </div>
@@ -51,7 +53,7 @@
 
   <main>
     <!-- A) HERO CAROUSEL -->
-    <section class="hero-carousel" aria-label="Carrusel de productos destacados">
+    <section class="hero-carousel" id="inicio" aria-label="Carrusel de productos destacados">
       <!-- Radio inputs for CSS-only control -->
       <input type="radio" name="carousel" id="carousel-1" checked>
       <input type="radio" name="carousel" id="carousel-2">
@@ -105,8 +107,37 @@
       </div>
     </section>
 
+    <!-- SELECTOR RÁPIDO: OCASIÓN Y PROMOS -->
+    <section class="section section--mist" id="selector-novedades">
+      <div class="container">
+        <h2 class="section__title">Elige tu ocasión o promo</h2>
+        <div class="quick-picks">
+          <a class="quick-pick" href="novedades.html?filtro=ocasion">
+            <span class="quick-pick__label">Por ocasión</span>
+            <h3>Casual de fin de semana</h3>
+            <p>Outfits cómodos y urbanos para salidas y planes informales.</p>
+          </a>
+          <a class="quick-pick" href="novedades.html?filtro=2x1">
+            <span class="quick-pick__label">Promoción</span>
+            <h3>2x1 en hoodies</h3>
+            <p>Activa una oferta fuerte y llévate dos piezas clave.</p>
+          </a>
+          <a class="quick-pick" href="novedades.html?filtro=regalo">
+            <span class="quick-pick__label">Regalos</span>
+            <h3>Regalo por compra</h3>
+            <p>Compras mayores a $120 con obsequio urbano incluido.</p>
+          </a>
+          <a class="quick-pick" href="novedades.html?filtro=weekend">
+            <span class="quick-pick__label">Weekend Deal</span>
+            <h3>Descuentos de fin de semana</h3>
+            <p>Combos edición limitada con precio especial por tiempo corto.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- D) MÁS VENDIDOS -->
-    <section class="section">
+    <section class="section" id="mas-vendidos">
       <div class="container">
         <h2 class="section__title">🔥 Más Vendidos</h2>
         <div class="products-grid">
@@ -118,7 +149,7 @@
                 <span class="current">$89.99</span>
                 <span class="old">$120.00</span>
               </div>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
             </div>
           </article>
           <article class="product-card" data-id="PROD-002">
@@ -129,7 +160,7 @@
                 <span class="current">$74.99</span>
                 <span class="old">$95.00</span>
               </div>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
             </div>
           </article>
           <article class="product-card" data-id="PROD-003">
@@ -140,7 +171,7 @@
                 <span class="current">$39.99</span>
                 <span class="old">$55.00</span>
               </div>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
             </div>
           </article>
           <article class="product-card" data-id="PROD-004">
@@ -151,7 +182,7 @@
                 <span class="current">$29.99</span>
                 <span class="old">$40.00</span>
               </div>
-              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar al carrito</button>
+              <button class="btn btn-primary btn-sm" onclick="openModal('add-cart-modal')">Agregar</button>
             </div>
           </article>
         </div>
@@ -159,32 +190,32 @@
     </section>
 
     <!-- B) CATEGORÍAS -->
-    <section class="section section--mist">
+    <section class="section section--mist" id="categorias">
       <div class="container">
         <h2 class="section__title">Categorías</h2>
         <div class="categories-grid">
-          <a href="catalogo.html" class="category-card" aria-label="Ver categoría Hoodies">
+          <a href="catalogo.html?cat=drops" class="category-card" aria-label="Ver categoría Drops semanales">
             <div class="category-card__icon">🧥</div>
-            <div class="category-card__name">Hoodies</div>
+            <div class="category-card__name">Drops Semanales</div>
           </a>
-          <a href="catalogo.html" class="category-card" aria-label="Ver categoría Camisetas">
+          <a href="catalogo.html?cat=basicos" class="category-card" aria-label="Ver categoría Ropa Básica Premium">
             <div class="category-card__icon">👕</div>
-            <div class="category-card__name">Camisetas</div>
+            <div class="category-card__name">Ropa Básica Premium</div>
           </a>
-          <a href="catalogo.html" class="category-card" aria-label="Ver categoría Pantalones">
+          <a href="catalogo.html?cat=ocasion" class="category-card" aria-label="Ver categoría Ocasión y Eventos">
             <div class="category-card__icon">👖</div>
-            <div class="category-card__name">Pantalones</div>
+            <div class="category-card__name">Ocasión y Eventos</div>
           </a>
-          <a href="catalogo.html" class="category-card" aria-label="Ver categoría Accesorios">
+          <a href="catalogo.html?cat=regalos" class="category-card" aria-label="Ver categoría Regalos y Combos">
             <div class="category-card__icon">🧢</div>
-            <div class="category-card__name">Accesorios</div>
+            <div class="category-card__name">Regalos y Combos</div>
           </a>
         </div>
       </div>
     </section>
 
     <!-- E) BANNER PROMO -->
-    <section class="banner-promo">
+    <section class="banner-promo" id="promos">
       <h2>Envío gratis en pedidos mayores a $100</h2>
       <p>Usa el código VORTEX2026 y obtén un 15% de descuento en tu primera compra.</p>
       <a href="catalogo.html" class="btn">Comprar ahora</a>
@@ -220,7 +251,7 @@
     </section>
 
     <!-- F) TESTIMONIOS -->
-    <section class="section section--mist">
+    <section class="section section--mist" id="testimonios">
       <div class="container">
         <h2 class="section__title">Lo que dicen nuestros clientes</h2>
         <div class="testimonials-grid">
@@ -242,38 +273,39 @@
   </main>
 
   <!-- FOOTER (Unified) -->
-  <footer class="footer" role="contentinfo">
+      <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div class="footer__col">
-        <h3>Links Rápidos</h3>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="novedades.html">Novedades</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#">FAQ</a>
+        <h3>Inicio</h3>
+        <a href="index.html">Portada</a>
+        <a href="index.html#mas-vendidos">Mas vendidos</a>
+        <a href="index.html#categorias">Categorias</a>
+        <a href="index.html#promos">Promociones</a>
+        <a href="index.html#testimonios">Testimonios</a>
       </div>
       <div class="footer__col">
-        <h3>Redes Sociales</h3>
-        <a href="#">📷 Instagram</a>
-        <a href="#">🎵 TikTok</a>
-        <a href="#">🐦 Twitter</a>
-        <a href="#">▶️ YouTube</a>
+        <h3>Categorias</h3>
+        <a href="catalogo.html?cat=drops">Drops semanales</a>
+        <a href="catalogo.html?cat=basicos">Basicos premium</a>
+        <a href="catalogo.html?cat=ocasion">Ocasion y eventos</a>
+        <a href="catalogo.html?cat=regalos">Regalos y combos</a>
+        <a href="catalogo.html?cat=accesorios">Accesorios urbanos</a>
       </div>
       <div class="footer__col">
-        <h3>Newsletter</h3>
-        <p class="footer__col-desc">Recibe ofertas exclusivas y novedades.</p>
-        <form class="footer__newsletter" onsubmit="event.preventDefault();">
-          <label for="newsletter-email" class="sr-only">Email para newsletter</label>
-          <input type="email" id="newsletter-email" placeholder="Tu email" required>
-          <button type="submit">Suscribir</button>
-        </form>
+        <h3>Novedades y Promos</h3>
+        <a href="novedades.html#promos-2x1">2x1 de temporada</a>
+        <a href="novedades.html#promo-regalo">Regalo por compra</a>
+        <a href="novedades.html#looks-ocasion">Looks por ocasion</a>
+        <a href="novedades.html#promo-fin-semana">Weekend deals</a>
+        <a href="novedades.html#promo-primer-compra">Primera compra 15% OFF</a>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>&copy; 2026 VØRTEX Streetwear. Todos los derechos reservados.</p>
+      <p>&copy; 2026 VORTEX Streetwear. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- MODAL: Agregar al carrito -->
+  <!-- MODAL: Agregar -->
   <div class="modal-overlay" id="add-cart-modal" role="dialog" aria-modal="true" aria-labelledby="modal-add-title">
     <div class="modal modal--product">
       <img src="assets/images/hero-secondary.png" alt="Imagen del producto" class="modal__product-img">
@@ -354,3 +386,7 @@
   </script>
 </body>
 </html>
+
+
+
+

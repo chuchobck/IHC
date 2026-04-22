@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -31,6 +31,7 @@
         <a href="index.html">Inicio</a>
         <a href="catalogo.html">Catálogo</a>
         <a href="novedades.html">Novedades</a>
+                <a href="quienes-somos.html">Quiénes Somos</a>
         <a href="contacto.html">Contacto</a>
       </div>
     </div>
@@ -38,6 +39,7 @@
       <a href="index.html">Inicio</a>
       <a href="catalogo.html">Catálogo</a>
       <a href="novedades.html">Novedades</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
       <a href="contacto.html">Contacto</a>
     </div>
   </nav>
@@ -90,7 +92,7 @@
                 <input type="password" id="clave_cliente" name="clave_cliente" required aria-required="true" autocomplete="current-password" placeholder=" " minlength="6">
                 <p class="error-msg" role="alert">La contraseña debe tener al menos 6 caracteres.</p>
               </div>
-              <button type="button" class="btn btn-primary" style="width:100%" onclick="handleLogin()">Iniciar Sesión</button>
+              <button type="button" class="btn btn-primary btn--block" onclick="handleLogin()">Iniciar Sesión</button>
               <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
             </form>
           </div>
@@ -118,7 +120,7 @@
                 <input type="password" id="reg_confirm" name="confirm_clave" required aria-required="true" autocomplete="new-password" placeholder=" ">
                 <p class="error-msg" role="alert">Las contraseñas deben coincidir.</p>
               </div>
-              <button type="button" class="btn btn-primary" style="width:100%" onclick="handleRegister()">Crear Cuenta</button>
+              <button type="button" class="btn btn-primary btn--block" onclick="handleRegister()">Crear Cuenta</button>
             </form>
           </div>
         </div>
@@ -127,34 +129,35 @@
   </main>
 
   <!-- FOOTER (Unified) -->
-  <footer class="footer" role="contentinfo">
+      <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div class="footer__col">
-        <h3>Links Rápidos</h3>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="novedades.html">Novedades</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#">FAQ</a>
+        <h3>Inicio</h3>
+        <a href="index.html">Portada</a>
+        <a href="index.html#mas-vendidos">Mas vendidos</a>
+        <a href="index.html#categorias">Categorias</a>
+        <a href="index.html#promos">Promociones</a>
+        <a href="index.html#testimonios">Testimonios</a>
       </div>
       <div class="footer__col">
-        <h3>Redes Sociales</h3>
-        <a href="#">📷 Instagram</a>
-        <a href="#">🎵 TikTok</a>
-        <a href="#">🐦 Twitter</a>
-        <a href="#">▶️ YouTube</a>
+        <h3>Categorias</h3>
+        <a href="catalogo.html?cat=drops">Drops semanales</a>
+        <a href="catalogo.html?cat=basicos">Basicos premium</a>
+        <a href="catalogo.html?cat=ocasion">Ocasion y eventos</a>
+        <a href="catalogo.html?cat=regalos">Regalos y combos</a>
+        <a href="catalogo.html?cat=accesorios">Accesorios urbanos</a>
       </div>
       <div class="footer__col">
-        <h3>Newsletter</h3>
-        <p class="footer__col-desc">Recibe ofertas exclusivas y novedades.</p>
-        <form class="footer__newsletter" onsubmit="event.preventDefault();">
-          <label for="newsletter-email-login" class="sr-only">Email para newsletter</label>
-          <input type="email" id="newsletter-email-login" placeholder="Tu email" required>
-          <button type="submit">Suscribir</button>
-        </form>
+        <h3>Novedades y Promos</h3>
+        <a href="novedades.html#promos-2x1">2x1 de temporada</a>
+        <a href="novedades.html#promo-regalo">Regalo por compra</a>
+        <a href="novedades.html#looks-ocasion">Looks por ocasion</a>
+        <a href="novedades.html#promo-fin-semana">Weekend deals</a>
+        <a href="novedades.html#promo-primer-compra">Primera compra 15% OFF</a>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>&copy; 2026 VØRTEX Streetwear. Todos los derechos reservados.</p>
+      <p>&copy; 2026 VORTEX Streetwear. Todos los derechos reservados.</p>
     </div>
   </footer>
 
@@ -268,3 +271,8 @@
   </script>
 </body>
 </html>
+
+
+
+
+
