@@ -1,4 +1,4 @@
-/* ======================================
+﻿/* ======================================
    VØRTEX STREETWEAR (BarBox) — Design System
    Proyecto IHC — Prototipo Alta Fidelidad
    Paleta: #FFFFFF · #0D0D0D · #6B7280 · #F3F4F6 · #1E293B
@@ -1317,9 +1317,152 @@ ul { list-style: none; }
 }
 
 /* ======================================
-   LOGIN
+   LOGIN — AUTH TABS
    ====================================== */
-.login-layout {
+.auth-tabs-wrapper {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Demo credentials box */
+.demo-box {
+  background: linear-gradient(135deg, #1E293B 0%, #0f172a 100%);
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-xl);
+  margin-bottom: var(--space-xl);
+  border-left: 4px solid #F59E0B;
+}
+.demo-box__label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #F59E0B;
+  margin-bottom: var(--space-md);
+}
+.demo-box__creds {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.demo-box__cred-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+.demo-box__cred-key {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  min-width: 80px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.demo-box__cred-val {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: rgba(255,255,255,0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Tab buttons */
+.auth-tab-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 2px solid var(--color-mist);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+}
+.auth-tab-btn {
+  padding: var(--space-md) var(--space-lg);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-steel);
+  background: var(--color-white);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  border-right: 1px solid var(--color-mist);
+  letter-spacing: 0.02em;
+}
+.auth-tab-btn:last-child { border-right: none; }
+.auth-tab-btn:hover:not(.active) {
+  background: var(--color-mist);
+  color: var(--color-obsidian);
+}
+.auth-tab-btn.active {
+  background: var(--color-midnight);
+  color: var(--color-white);
+}
+
+/* Auth panels */
+.auth-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.auth-panel.active { display: block; }
+
+.auth-panel .link-forgot {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-steel);
+  margin-top: var(--space-sm);
+}
+.auth-panel .link-forgot:hover { color: var(--color-midnight); opacity: 1; }
+
+/* ======================================
+   WHY VØRTEX — Home section
+   ====================================== */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+.why-card {
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-mist);
+  transition: all var(--transition);
+  background: var(--color-white);
+}
+.why-card:hover {
+  border-color: var(--color-midnight);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.why-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+  display: block;
+}
+.why-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-obsidian);
+  margin-bottom: var(--space-sm);
+}
+.why-card__desc {
+  font-size: 0.875rem;
+  color: var(--color-steel);
+  line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .auth-tab-btn { font-size: 0.9rem; padding: var(--space-sm) var(--space-md); }
+}
+@media (max-width: 480px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-2xl);

@@ -54,10 +54,31 @@
       <div class="container">
         <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <div class="login-layout">
-          <!-- LOGIN -->
-          <div class="login-panel">
-            <h2>Iniciar Sesión</h2>
+        <div class="auth-tabs-wrapper">
+
+          <!-- DEMO CREDENTIALS BOX -->
+          <div class="demo-box">
+            <div class="demo-box__label">🎯 Credenciales Demo — Simula una compra completa</div>
+            <div class="demo-box__creds">
+              <div class="demo-box__cred-item">
+                <span class="demo-box__cred-key">Email</span>
+                <code class="demo-box__cred-val">demo@vortex.com</code>
+              </div>
+              <div class="demo-box__cred-item">
+                <span class="demo-box__cred-key">Contraseña</span>
+                <code class="demo-box__cred-val">demo123</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB BUTTONS -->
+          <div class="auth-tab-btns" role="tablist" aria-label="Tipo de acceso">
+            <button class="auth-tab-btn active" id="tab-login" role="tab" aria-selected="true" aria-controls="panel-login" onclick="switchTab('login')">👤 Iniciar Sesión</button>
+            <button class="auth-tab-btn" id="tab-register" role="tab" aria-selected="false" aria-controls="panel-register" onclick="switchTab('register')">✏️ Crear Cuenta</button>
+          </div>
+
+          <!-- LOGIN PANEL -->
+          <div class="auth-panel active" id="panel-login" role="tabpanel" aria-labelledby="tab-login">
             <form id="login-form" novalidate>
               <div class="form-group">
                 <label for="email_cliente">Correo electrónico</label>
@@ -74,9 +95,8 @@
             </form>
           </div>
 
-          <!-- REGISTER -->
-          <div class="login-panel">
-            <h2>Registrarse</h2>
+          <!-- REGISTER PANEL -->
+          <div class="auth-panel" id="panel-register" role="tabpanel" aria-labelledby="tab-register">
             <form id="register-form" novalidate>
               <div class="form-group">
                 <label for="nombre_cliente">Nombre completo</label>
@@ -157,7 +177,28 @@
       hamburger.setAttribute('aria-expanded', expanded);
     });
 
+    function switchTab(tab) {
+      document.querySelectorAll('.auth-tab-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.auth-panel').forEach(function(panel) {
+        panel.classList.remove('active');
+      });
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.getElementById('tab-' + tab).setAttribute('aria-selected', 'true');
+      document.getElementById('panel-' + tab).classList.add('active');
+    }
+
     function handleLogin() {
+      var email = document.getElementById('email_cliente').value.trim();
+      var pass = document.getElementById('clave_cliente').value;
+      // Credenciales demo
+      if (email === 'demo@vortex.com' && pass === 'demo123') {
+        sessionStorage.setItem('vortex_logged_in', 'true');
+        window.location.href = 'checkout.html';
+        return;
+      }
       var form = document.getElementById('login-form');
       var groups = form.querySelectorAll('.form-group');
       var valid = true;
